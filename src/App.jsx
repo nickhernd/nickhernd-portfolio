@@ -5,6 +5,7 @@ import About from './components/home/About';
 import Projects from './components/home/Projects';
 import ThemeToggle from './components/shared/ThemeToggle';
 import Contact from './components/home/Contact';
+import Timeline from './components/home/Timeline';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Hero />
       <About />
       <Projects />
+      <Timeline />
       <ThemeToggle />
       <Contact/>
     </div>

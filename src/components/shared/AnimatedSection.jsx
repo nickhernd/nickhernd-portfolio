@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const AnimatedSection = ({
-  children,
-  animation = 'fade-up',
-  delay = 0,
-  className = ''
-}) => {
+const AnimatedSection = ({ children, animation = 'fade-up', delay = 0, className = '' }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
 
@@ -43,9 +38,7 @@ const AnimatedSection = ({
     'fade-left': 'translate-x-10 opacity-0',
     'fade-right': '-translate-x-10 opacity-0',
     'scale-up': 'scale-95 opacity-0',
-    'scale-down': 'scale-105 opacity-0',
-    'rotate-left': '-rotate-12 opacity-0',
-    'rotate-right': 'rotate-12 opacity-0'
+    'zoom-in': 'scale-90 opacity-0'
   };
 
   return (
@@ -53,7 +46,7 @@ const AnimatedSection = ({
       id={`animated-section-${delay}`}
       className={`
         transform transition-all duration-700
-        ${isVisible ? 'translate-y-0 translate-x-0 scale-100 rotate-0 opacity-100' : animations[animation]}
+        ${isVisible ? 'translate-y-0 translate-x-0 scale-100 opacity-100' : animations[animation]}
         ${className}
       `}
       style={{

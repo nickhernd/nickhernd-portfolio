@@ -1,57 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { Brain, Code2, Database, Network, Server, Function } from 'lucide-react';
+import React from 'react';
+import { Brain, Code2, Network, Function } from 'lucide-react';
 
-const SkillCard = ({ icon: Icon, title, skills, delay }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const element = document.querySelector(`#skill-${title}`);
-    if (element) observer.observe(element);
-
-    return () => {
-      if (element) observer.unobserve(element);
-    };
-  }, [title]);
-
+const SkillCard = ({ title, icon: Icon, skills }) => {
   return (
-    <div
-      id={`skill-${title}`}
-      className={`transform transition-all duration-700 delay-${delay} ${
-        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-      }`}
-    >
-      <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all">
-        <Icon className="h-8 w-8 text-primary-600 mb-4" />
-        <h3 className="text-xl font-semibold mb-4">{title}</h3>
-        <div className="space-y-4">
-          {skills.map((skill, index) => (
-            <div key={index}>
-              <div className="flex justify-between mb-1">
-                <span className="text-gray-700">{skill.name}</span>
-                <span className="text-primary-600 font-semibold">
-                  {skill.level}%
-                </span>
-              </div>
-              <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-primary-500 rounded-full transition-all duration-1000"
-                  style={{
-                    width: isVisible ? `${skill.level}%` : '0%'
-                  }}
-                />
-              </div>
-            </div>
-          ))}
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-lg transition-all">
+      <div className="flex items-center gap-4 mb-6">
+        <div className="p-3 bg-primary-100 dark:bg-primary-900/20 rounded-xl">
+          <Icon className="h-8 w-8 text-primary-600 dark:text-primary-400" />
         </div>
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white">{title}</h3>
+      </div>
+
+      <div className="space-y-4">
+        {skills.map((skill, index) => (
+          <div key={index}>
+            <div className="flex justify-between mb-2">
+              <span className="text-gray-700 dark:text-gray-300">{skill.name}</span>
+              <span className="text-primary-600 dark:text-primary-400 font-semibold">
+                {skill.level}%
+              </span>
+            </div>
+            <div className="h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-primary-500 rounded-full transition-all duration-1000"
+                style={{ width: `${skill.level}%` }}
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -98,22 +74,23 @@ const Skills = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50" id="skills">
+    <section className="py-20 bg-gray-50 dark:bg-gray-900" id="skills">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Habilidades</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+            Habilidades
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Combinación de conocimientos en matemáticas, programación y machine learning,
             con enfoque en algoritmos y sistemas distribuidos.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category) => (
             <SkillCard
               key={category.title}
               {...category}
-              delay={(index + 1) * 100}
             />
           ))}
         </div>
