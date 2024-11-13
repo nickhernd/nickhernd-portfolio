@@ -4,6 +4,7 @@ import Hero from './components/home/Hero';
 import About from './components/home/About';
 import Projects from './components/home/Projects';
 import ThemeToggle from './components/shared/ThemeToggle';
+import Contact from './components/home/Contact';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <About />
       <Projects />
       <ThemeToggle />
+      <Contact/>
     </div>
   );
 }

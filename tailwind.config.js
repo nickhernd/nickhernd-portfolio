@@ -24,6 +24,14 @@ export default {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
       },
+      blink: {
+        '0%, 100%': { opacity: '1' },
+        '50%': { opacity: '0' }
+      },
+      drawPath: {
+        '0%': { 'stroke-dashoffset': '100', opacity: '0' },
+        '100%': { 'stroke-dashoffset': '0', opacity: '1' }
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
