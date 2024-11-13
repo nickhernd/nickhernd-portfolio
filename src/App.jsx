@@ -1,29 +1,19 @@
- // src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import Home from './components/Home';
-import About from './components/About';
-import Projects from './components/Projects';
-import Education from './components/Education';
-import Contact from './components/Contact';
-import Background from './components/Background';
+import Navbar from './components/layout/Navbar';
+import Hero from './components/home/Hero';
+import About from './components/home/About';
+import Projects from './components/home/Projects';
+import ThemeToggle from './components/shared/ThemeToggle';
 
 function App() {
   return (
-    <Router>
-      <div className="relative min-h-screen">
-        <Background />
-        <Navigation />
-        <main>
-          <Home />
-          <About />
-          <Education />
-          <Projects />
-          <Contact />
-        </main>
-      </div>
-    </Router>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <Navbar />
+      <Hero />
+      <About />
+      <Projects />
+      <ThemeToggle />
+    </div>
   );
 }
 
