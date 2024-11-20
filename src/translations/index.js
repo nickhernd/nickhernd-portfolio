@@ -9,7 +9,7 @@ export const translations = {
       },
       hero: {
         greeting: 'Hola, soy',
-        roles: ['Desarrollador', 'Matemático', 'Problem Solver', 'ML Engineer'],
+        roles: ['Desarrollador', 'Matemático', 'Problem Solver', 'ML Engineer', 'Network Engineer'],
         description: 'Apasionado por la innovación tecnológica y la resolución de problemas complejos.',
         buttons: {
           projects: 'Ver Proyectos',
